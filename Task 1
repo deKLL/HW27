@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool OnlyLetters(const string& str) {
+    for (char ch : str) {
+        if (!isalpha(ch)) { // перевірка букв
+            return false;
+        }
+    }
+    return true;
+}
+
+bool OnlyDigits(const string& str) {
+    for (char ch : str) {
+        if (!isdigit(ch)) { // перевірка цифр
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+
+    if (input.length() != 10) {
+        cout << "The string must be 10 characters long!" << endl;
+        return 0;
+    }
+
+    if (OnlyLetters(input)) {
+        cout << "LETTERS" << endl;
+    } else if (OnlyDigits(input)) {
+        cout << "DIGITS" << endl;
+    } else {
+        cout << "ANOTHER" << endl;
+    }
+
+    return 0;
+}
